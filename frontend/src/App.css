@@ -1,0 +1,689 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background: #f5f7fb;
+  color: #000000;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 52px 8%;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  color: #667085;
+  margin-bottom: 12px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 38px;
+  line-height: 1.15;
+  font-weight: 750;
+  letter-spacing: -1px;
+  color: #000000;
+}
+
+.header p {
+  max-width: 760px;
+  margin: 14px 0 0;
+  color: #000000;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard {
+  width: 84%;
+  max-width: 1200px;
+  margin: 42px auto 60px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.25fr)
+    minmax(340px, 0.75fr);
+
+  gap: 24px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.card,
+.result-card,
+.chart-card,
+.model-card {
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 8px 30px rgba(16, 24, 40, 0.05);
+}
+
+
+/* =========================
+   PREDICTION CONTROLS
+========================= */
+
+.card {
+  padding: 30px;
+}
+
+.section-heading,
+.result-top,
+.chart-header,
+.model-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.section-heading h2,
+.result-top h2,
+.chart-header h2,
+.model-heading h2 {
+  margin: 5px 0 0;
+
+  font-size: 23px;
+  font-weight: 700;
+
+  color: #000000;
+}
+
+.section-number {
+  display: block;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1.2px;
+
+  color: #667085;
+}
+
+.live-badge,
+.prediction-status,
+.model-name {
+  border: 1px solid #d0d5dd;
+
+  border-radius: 999px;
+
+  padding: 6px 10px;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.7px;
+
+  white-space: nowrap;
+
+  color: #000000;
+}
+
+.description {
+  margin: 18px 0 28px;
+
+  color: #000000;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.form-grid {
+  display: grid;
+  gap: 19px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.field label {
+  font-size: 13px;
+  font-weight: 700;
+
+  color: #000000;
+}
+
+.field input,
+.field select {
+  width: 100%;
+
+  padding: 12px 14px;
+
+  border: 1px solid #d0d5dd;
+
+  border-radius: 9px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #000000;
+
+  transition: border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: #667085;
+
+  box-shadow:
+    0 0 0 3px rgba(102, 112, 133, 0.1);
+}
+
+.field-help {
+  font-size: 11px;
+  color: #667085;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.predict-button {
+  width: 100%;
+
+  margin-top: 28px;
+
+  padding: 14px 18px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #172033;
+
+  color: #ffffff;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.predict-button:hover {
+  opacity: 0.92;
+
+  transform: translateY(-1px);
+}
+
+.predict-button:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+.error {
+  margin-top: 18px;
+
+  padding: 12px 14px;
+
+  border-radius: 8px;
+
+  background: #fff1f1;
+
+  border: 1px solid #fecdca;
+
+  color: #b42318;
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   RESULT CARD
+========================= */
+
+.result-card {
+  padding: 30px;
+
+  min-height: 430px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.result-top {
+  margin-bottom: auto;
+}
+
+.result-label {
+  margin-top: 35px;
+
+  color: #667085;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.prediction {
+  margin-top: 10px;
+
+  font-size: 56px;
+
+  line-height: 1;
+
+  font-weight: 750;
+
+  letter-spacing: -2px;
+
+  color: #000000;
+}
+
+.unit {
+  margin-top: 9px;
+
+  color: #000000;
+
+  font-size: 13px;
+}
+
+.prediction-meta {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 10px;
+
+  margin-top: 30px;
+}
+
+.meta-item {
+  padding: 13px;
+
+  border: 1px solid #eaecf0;
+
+  border-radius: 9px;
+}
+
+.meta-item span,
+.comparison span,
+.chart-stat span,
+.model-item span {
+  display: block;
+
+  color: #667085;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.meta-item strong {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 13px;
+
+  color: #000000;
+}
+
+.comparison {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 15px;
+
+  margin-top: 15px;
+
+  padding-top: 18px;
+
+  border-top: 1px solid #eaecf0;
+}
+
+.comparison strong {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 14px;
+
+  color: #000000;
+}
+
+.positive {
+  color: #087443 !important;
+}
+
+.negative {
+  color: #b42318 !important;
+}
+
+
+/* =========================
+   EMPTY RESULT
+========================= */
+
+.empty-result {
+  margin: auto 0;
+
+  padding: 25px 0;
+}
+
+.empty-icon {
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #f2f4f7;
+
+  font-size: 22px;
+
+  color: #000000;
+}
+
+.empty-result h3 {
+  margin: 18px 0 8px;
+
+  font-size: 19px;
+
+  color: #000000;
+}
+
+.empty-result p {
+  max-width: 320px;
+
+  margin: 0;
+
+  color: #667085;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================
+   CHART
+========================= */
+
+.chart-card {
+  grid-column: 1 / -1;
+
+  padding: 30px;
+}
+
+.chart-header {
+  align-items: center;
+}
+
+.chart-header p {
+  margin: 7px 0 0;
+
+  color: #667085;
+
+  font-size: 13px;
+}
+
+.chart-stat {
+  min-width: 130px;
+
+  padding: 11px 14px;
+
+  border: 1px solid #eaecf0;
+
+  border-radius: 9px;
+
+  text-align: right;
+}
+
+.chart-stat strong {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #000000;
+
+  font-size: 16px;
+}
+
+.chart-container {
+  width: 100%;
+
+  height: 350px;
+
+  margin-top: 28px;
+}
+
+.chart-empty {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #667085;
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   MODEL INFORMATION
+========================= */
+
+.model-card {
+  grid-column: 1 / -1;
+
+  padding: 30px;
+}
+
+.model-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 15px;
+
+  margin-top: 25px;
+}
+
+.model-item {
+  padding: 18px;
+
+  border: 1px solid #eaecf0;
+
+  border-radius: 10px;
+}
+
+.model-item strong {
+  display: block;
+
+  margin-top: 8px;
+
+  font-size: 20px;
+
+  color: #000000;
+}
+
+.model-description {
+  margin-top: 20px;
+
+  padding-top: 20px;
+
+  border-top: 1px solid #eaecf0;
+}
+
+.model-description strong {
+  font-size: 13px;
+
+  color: #000000;
+}
+
+.model-description p {
+  margin: 7px 0 0;
+
+  color: #667085;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  padding: 25px;
+
+  border-top: 1px solid #e5e7eb;
+
+  background: #ffffff;
+
+  text-align: center;
+
+  color: #667085;
+
+  font-size: 11px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+
+    width: 88%;
+  }
+
+  .chart-card,
+  .model-card {
+    grid-column: auto;
+  }
+
+  .model-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+}
+
+
+@media (max-width: 600px) {
+  .header {
+    padding: 38px 6%;
+  }
+
+  .header h1 {
+    font-size: 30px;
+  }
+
+  .dashboard {
+    width: 92%;
+
+    margin-top: 28px;
+  }
+
+  .card,
+  .result-card,
+  .chart-card,
+  .model-card {
+    padding: 22px;
+  }
+
+  .prediction {
+    font-size: 46px;
+  }
+
+  .prediction-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .model-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .chart-stat {
+    text-align: left;
+  }
+}
